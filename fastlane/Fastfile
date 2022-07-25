@@ -26,7 +26,7 @@ platform :ios do
     xcodebuild(
       archive: true,
       archive_path: "artifacts/SwiftExample.xcarchive",
-      workspace: "SwiftExample.xcodeproj",
+      workspace: "SwiftExample.xcworkspace",
       scheme: "SwiftExample",
       xcargs: "-configuration Debug -sdk 'iphonesimulator' -destination 'generic/platform=iOS Simulator' -derivedDataPath 'artifacts/derivedData'"
     )
