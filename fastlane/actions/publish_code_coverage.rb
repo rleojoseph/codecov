@@ -21,10 +21,6 @@ module Fastlane
         "This action uses Slather to generate a code coverage report for the current Xcode project status, gets the coverage number, gets the current commit and publish the coverage number via Github API to a status check, making it available to see in pull requests, for example"
       end
 
-      def self.authors
-        ["Federico Jordan"]
-      end
-
       def self.is_supported?(platform)
         platform == :ios
       end

@@ -16,10 +16,20 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Run tasks when submitting a pull request"
-  lane :tasks_for_pull_request do
-    UI.message "Hello Fastlane world!"
-    scan
-    publish_code_coverage
+  # desc "Run tasks when submitting a pull request"
+  # lane :tasks_for_pull_request do
+  #   UI.message "Hello Fastlane world!"
+  #   scan
+  #   publish_code_coverage
+  # end
+  lane :build_simulator do |options|
+    xcodebuild(
+      archive: true,
+      archive_path: "artifacts/SwiftExample.xcarchive",
+      workspace: "SwiftExample.xcodeproj",
+      scheme: "SwiftExample",
+      xcargs: "-configuration Debug -sdk 'iphonesimulator' -destination 'generic/platform=iOS Simulator' -derivedDataPath 'artifacts/derivedData'"
+    )
   end
 end
+
